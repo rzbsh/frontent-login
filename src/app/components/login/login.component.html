@@ -1,0 +1,35 @@
+<p>Test:</p>
+
+<button *ngIf="loggedIn" type="button" (click)="logout()">Log out</button>
+<button *ngIf="!loggedIn" type="button" (click)="login()">Log in</button>
+<br>
+<button type="button" (click)="refreshLogin()">Refresh Login</button>
+<br>
+<button type="button" (click)="isLoggedIn()">isLoggedIn?</button>
+<br>
+
+<h2>Login</h2>
+<form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && controls.username.errors }" />
+        <div *ngIf="submitted && controls.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && controls.password.errors }" />
+        <div *ngIf="submitted && controls.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Login
+        </button>
+        <a routerLink="/register" class="btn btn-link">Register</a>
+    </div>
+</form>
+
