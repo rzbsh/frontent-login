@@ -4,12 +4,13 @@
 		<!-- MENU SIDEBAR-->
 		<aside class="menu-sidebar d-none d-lg-block">
 			<div class="logo">
-				<a href="/services">
+				<a href="/">
 					<img src="assets/images/logo.png" alt="MMService" class="img-responsive">
 				</a>
 			</div>
 			
-			<app-sidenav></app-sidenav>
+			<!--<app-sidenav></app-sidenav>
+      		<app-navigation></app-navigation>-->
 		</aside>
 		<!-- END MENU SIDEBAR-->
 
@@ -31,8 +32,12 @@
 			<!-- END HEADER DESKTOP-->
 
 			<!-- MAIN CONTENT-->
-			<app-login></app-login>
-      <button type="button" (click)="getResource()">Get Resource</button>
+			<router-outlet></router-outlet>
+
+			<!-- Test material and credentials
+      		<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+      		<button type="button" (click)="getResource()">Get Resource (from root)</button>
+			  -->
 
 			<!-- <app-service-list></app-service-list>-->
 

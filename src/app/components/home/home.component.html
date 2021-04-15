@@ -1,0 +1,4 @@
+<ng-template [ngIf]="!loggedIn" ><a routerLink="/login"><button class="btn btn-success pull-right" >Login</button></a></ng-template>
+<ng-template [ngIf]="loggedIn"><button type="button" (click)="logout()">Log out</button></ng-template>
+<br>
+<button type="button" (click)="getResource()">Get Resource (from home)</button>
