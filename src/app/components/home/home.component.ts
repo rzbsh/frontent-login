@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Info } from 'src/app/models/info';
 import { CustomKcAuthService } from 'src/app/services/custom-kc-auth.service';
 import { ProtectedInfoService } from 'src/app/services/protected-info.service';
 
@@ -10,8 +11,9 @@ import { ProtectedInfoService } from 'src/app/services/protected-info.service';
 export class HomeComponent implements OnInit {
 
   loggedIn = false;
+  public protectedInfo = new Info(1, 'No Info');
 
-  constructor(private readonly protectedInfo: ProtectedInfoService,
+  constructor(private readonly protectedInfoService: ProtectedInfoService,
     private customKcAuth: CustomKcAuthService) { }
 
   ngOnInit(): void {
@@ -27,9 +29,13 @@ export class HomeComponent implements OnInit {
 
     this.customKcAuth.logout();
     this.loggedIn = false;
-    
+
   }
 
-  getResource() { this.protectedInfo.getResource(); }
+  getResource() {
+    this.protectedInfoService.getResource().subscribe(
+      data => this.protectedInfo = data,
+      error => this.protectedInfo.name = 'Error');
+  }
 
 }

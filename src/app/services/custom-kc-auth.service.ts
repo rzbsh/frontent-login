@@ -29,7 +29,9 @@ export class CustomKcAuthService implements OnInit, OnDestroy {
   }
 
   constructor(private httpClient: HttpClient,
-    private cookieService: CookieService) { this.loggedIn = new BehaviorSubject<boolean>(false); }
+    private cookieService: CookieService) { 
+      this.loggedIn = new BehaviorSubject<boolean>(false); 
+    }
 
   ngOnInit() {
 

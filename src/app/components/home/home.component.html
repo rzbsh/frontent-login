@@ -1,4 +1,15 @@
 <ng-template [ngIf]="!loggedIn" ><a routerLink="/login"><button class="btn btn-success pull-right" >Login</button></a></ng-template>
 <ng-template [ngIf]="loggedIn"><button type="button" (click)="logout()">Log out</button></ng-template>
 <br>
-<button type="button" (click)="getResource()">Get Resource (from home)</button>
+<div class="container">
+    <h1 class="col-sm-12">Protected Info Details</h1>
+    <div class="col-sm-12">
+        <label class="col-sm-3">ID: </label> <span>{{protectedInfo.id}}</span>
+    </div>
+    <div class="col-sm-12">
+        <label class="col-sm-3">Name: </label> <span>{{protectedInfo.name}}</span>
+    </div>
+    <div class="col-sm-12">
+        <button class="btn btn-primary" (click)="getResource()" type="submit">Get Protected Info</button>
+    </div>
+</div>
